@@ -34,7 +34,7 @@ class ObstacleManager(object):
   def get_state_validity(self, config):
 
     # Convert the configuration to map-coordinates -> mapConfig is in pixel-space
-    mapConfig = Utils.world_to_map(config, self.map_info)
+    mapConfig = Utils.world_to_map(config)
 
     # ---------------------------------------------------------
     # YOUR CODE HERE

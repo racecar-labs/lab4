@@ -5,9 +5,8 @@ import numpy as np
 import tf.transformations
 import tf
 
-def world_to_map(config, map_info):
+def world_to_map(config):
 
-  # TODO(avk): simple coversion. NOT consistent with APK.
   scale = 0.02
 
   xPosition = int(np.floor(config[0]/scale))
