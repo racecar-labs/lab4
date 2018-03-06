@@ -97,8 +97,8 @@ class HaltonPlanner(object):
     envMap = cv2.cvtColor(envMap, cv2.COLOR_GRAY2RGB)
     
     for i in range(numpy.shape(plan)[0]-1): # Draw lines between each configuration in the plan
-      startPixel = Utils.world_to_map(plan[i])
-      goalPixel = Utils.world_to_map(plan[i+1])
+      startPixel = Utils.world_to_map(plan[i], self.planningEnv.manager.map_info)
+      goalPixel = Utils.world_to_map(plan[i+1], self.planningEnv.manager.map_info)
       cv2.line(envMap,(startPixel[0],startPixel[1]),(goalPixel[0],goalPixel[1]),(255,0,0),5)
 
     # Generate window
