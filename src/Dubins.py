@@ -145,7 +145,7 @@ def dubins_path_planning_from_origin(ex, ey, eyaw, c):
   beta = mod2pi(eyaw - theta) # The difference between the desired ending yaw position and the result of going straight towards it
 
   best_t, best_p, best_q, best_mode = None, None, None, None
-  bcost = float("inf")
+  best_cost = float("inf")
 
   #-------------------------------------------------------------------
   # YOUR CODE HERE
@@ -160,9 +160,9 @@ def dubins_path_planning_from_origin(ex, ey, eyaw, c):
   #--------------------------------------------------------------------
 
 
-  px, py, pyaw = generate_course([best_t, best_p, best_q], best_mode, c) # Turns arc lengths into points along path
+  px, py, pyaw = generate_course([best_t, best_p, best_q], best_mode, best_cost) # Turns arc lengths into points along path
 
-  return px, py, pyaw, bmode, bcost
+  return px, py, pyaw, best_mode, best_cost
 
 def dubins_path_planning(s, e, c):
   """
