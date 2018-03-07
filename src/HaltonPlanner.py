@@ -60,7 +60,7 @@ class HaltonPlanner(object):
       # Redraw if i == j
       # Switch i and j if i > j
      
-      # if we can find path between i and j (Hint: look inside HaltonEnvironment.py for a suitable function)
+      # if we can find path between i and j (Hint: look inside ObstacleManager.py for a suitable function)
         # Get the path (Hint: use Dubins)
         # Reformat the plan such that the new path is inserted and the old section of the path is removed between i and j
         # Be sure to CAREFULLY inspect the data formats of both the original plan and the plan returned by Dubins 
