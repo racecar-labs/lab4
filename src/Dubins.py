@@ -160,7 +160,7 @@ def dubins_path_planning_from_origin(ex, ey, eyaw, c):
   #--------------------------------------------------------------------
 
 
-  px, py, pyaw = generate_course([best_t, best_p, best_q], best_mode, best_cost) # Turns arc lengths into points along path
+  px, py, pyaw = generate_course([best_t, best_p, best_q], best_mode, c) # Turns arc lengths into points along path
 
   return px, py, pyaw, best_mode, best_cost
 
