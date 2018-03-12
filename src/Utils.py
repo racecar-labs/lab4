@@ -49,4 +49,25 @@ def world_to_map(pose, map_info):
     
     return config
       
-# TODO: You may want to add a map_to_world function
+def map_to_world(pose,map_info):
+    scale = map_info.resolution
+    angle = quaternion_to_angle(map_info.origin.orientation)
+
+    # rotate
+    config = np.array([pose[0],map_info.height-pose[1],pose[2]])
+    # rotation
+    c, s = np.cos(angle), np.sin(angle)
+    # we need to store the x coordinates since they will be overwritten
+    temp = np.copy(config[0])
+    config[0] = c*config[0] - s*config[1]
+    config[1] = s*temp       + c*config[1]
+
+    # scale
+    config[:2] *= float(scale)
+
+    # translate
+    config[0] += map_info.origin.position.x
+    config[1] += map_info.origin.position.y
+    config[2] += angle
+
+    return config
